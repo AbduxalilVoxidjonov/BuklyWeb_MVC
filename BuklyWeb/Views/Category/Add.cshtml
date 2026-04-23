@@ -1,0 +1,72 @@
+﻿@model List<BuklyWeb.Models.Category>
+@{
+    ViewData["Title"] = "Add Category";
+}
+
+<div class="text-center">
+    <h2>Kategoriya qo'shish</h2>
+
+    <form asp-controller="Category" asp-action="Add" method="post" class="mb-4">
+        @Html.AntiForgeryToken()
+
+        <input type="text" name="Name" id="matn"
+               placeholder="Kategoriya nomi..." required
+               class="form-control d-inline-block" style="max-width:300px;" />
+
+        <input type="text" name="Description" id="description"
+               placeholder="Tavsif..."
+               class="form-control d-inline-block" style="max-width:300px;" />
+
+        <input type="number" name="DisplayOrder" id="order"
+               placeholder="Tartib raqami..." value="0"
+               class="form-control d-inline-block" style="max-width:300px;" />
+
+        <button type="submit" class="btn btn-primary">Qo'shish</button>
+    </form>
+
+    <div id="container" class="mt-4">
+        <h4 class="text-center mb-3">Qo'shilgan kategoriyalar</h4>
+
+        @if (Model != null && Model.Any())
+        {
+            <table class="table table-bordered table-striped">
+                <thead class="table-dark">
+                    <tr>
+                        <th>No</th>
+                        <th>Nomi</th>
+                        <th>Tavsif</th>
+                        <th>Tartib</th>
+                        <th>Amallar</th>
+                    </tr>
+                </thead>
+                <tbody>
+                               @for (int i = 0; i < Model.Count; i++)
+                    {
+                        <tr>
+                            <td>@(i + 1)</td>
+                            <td>@Model[i].Name</td>
+                            <td>@Model[i].Description</td>
+                            <td>@Model[i].DisplayOrder</td>
+                            <td>
+                                <a asp-action="Edit" asp-route-id="@Model[i].Id"
+                                   class="btn btn-sm btn-warning">O'zgartirish</a>
+                                <form asp-action="Delete" asp-route-id="@Model[i].Id"
+                                      method="post" style="display:inline;">
+                                    @Html.AntiForgeryToken()
+                                    <button type="submit" class="btn btn-sm btn-danger"
+                                            onclick="return confirm('O\'chirishga ishonchingiz komilmi?')">
+                                        O'chirish
+                                    </button>
+                                </form>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
+        else
+        {
+            <p class="text-center text-muted">Hozircha kategoriya yo'q</p>
+        }
+    </div>
+</div>
