@@ -40,8 +40,7 @@ namespace BuklyWeb.Controllers
             }
 
             var categories = await _context.Categories
-                .OrderBy(c => c.DisplayOrder)
-                .ToListAsync();
+                                .ToListAsync();
             return View(categories);
         }
 

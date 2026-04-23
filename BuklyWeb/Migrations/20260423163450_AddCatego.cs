@@ -5,7 +5,7 @@
 namespace BuklyWeb.Migrations
 {
     /// <inheritdoc />
-    public partial class AddCategoryTable : Migration
+    public partial class AddCatego : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)

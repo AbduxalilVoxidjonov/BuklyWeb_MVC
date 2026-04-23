@@ -30,31 +30,23 @@
 
             <nav class="sidebar-nav">
                                 <div class="nav-group">
-                    <h5 class="nav-section-title">Products</h5>
+                    <h5 class="nav-section-title">Category</h5>
                     <ul class="nav flex-column">
+                        
                         <li class="nav-item">
-                            <a class="nav-link" asp-controller="Category" asp-action="Index">Categories</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link sub-link" asp-controller="Category" asp-action="Add">Add Category</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link sub-link" asp-controller="Product" asp-action="Index">Product List</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link sub-link" asp-controller="Product" asp-action="Add">Add Product</a>
+                            <a class="nav-link" asp-controller="Category" asp-action="Add">Add Category</a>
                         </li>
                     </ul>
                 </div>
 
                 <div class="nav-group">
-                    <h5 class="nav-section-title">Sales</h5>
+                    <h5 class="nav-section-title">Product</h5>
                     <ul class="nav flex-column">
                         <li class="nav-item">
-                            <a class="nav-link" asp-controller="Order" asp-action="Index">Orders</a>
+                            <a class="nav-link" asp-controller="Product" asp-action="Index">All product</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" asp-controller="Customer" asp-action="Index">Customers</a>
+                            <a class="nav-link" asp-controller="Product" asp-action="Add">Add Product</a>
                         </li>
                     </ul>
                 </div>
